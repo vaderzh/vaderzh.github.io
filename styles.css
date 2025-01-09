@@ -1,0 +1,296 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #333;
+    --hr-color:#33333333;
+    --header-background-color: #ece9e6;
+    --footer-background-color: #ece9e6;
+    --search-background-color: #f4f4f4;
+    --button-background-color: #333;
+    --button-hover-background-color: #555;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background: var(--background-color);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* 头部样式 */
+header {
+    background-image: url(header.png);
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgb(0, 63, 163);
+    border-radius: 5px;
+}
+
+/* 搜索区样式 */
+#search-section {
+    background-color:var(--search-background-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+#search-section input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#search-section input[type="text"]:focus {
+    border-color: #333;
+    outline: none;
+}
+
+#search-section button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-section button:hover {
+    background-color: #555;
+}
+
+/* 内容区样式 */
+.content-section {
+    padding: 40px 0;
+}
+
+.content-section:nth-child(even) {
+    background-color:var(--background-color);
+}
+
+.content-section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+#right {  
+    text-align: right;
+    font-size: 1.2em;
+    line-height: 1.8; 
+}
+#center{
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+/* 改变引用文本的字体样式和颜色 */  
+blockquote {  
+    font-family: 'Georgia', serif; /* 使用衬线字体 */  
+    font-style: italic; /* 斜体显示 */  
+    color: #666; /* 灰色文字 */  
+}  
+
+/* 页脚样式 */
+footer {
+    background-image: url(header.png);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+/* 自定义 <hr> 样式 */  
+hr {  
+    /* 移除默认的边框（如果浏览器为其设置了边框的话） */  
+    border: none;  
+  
+    /* 设置分隔线的高度（实际上是背景色的高度） */  
+    height: 2px; /* 你可以根据需要调整这个值 */  
+  
+    /* 设置分隔线的背景色，这就是你看到的“线”的颜色 */  
+    background-color: var(--hr-color); /* 使用你喜欢的颜色代码 */  
+  
+    /* 设置分隔线的外边距，控制它与其他元素之间的距离 */  
+    margin: 20px 0; /* 上下边距为20px，左右边距为0 */  
+  
+    /* （可选）添加一些边框样式，但注意我们之前已经用height和background-color代替了默认的border */  
+    /* border-top: 2px solid #333; 如果你想要边框样式而不是背景色，可以这样设置 */  
+  
+    /* （可选）添加圆角效果 */  
+    border-radius: 5px; /* 注意：在只有背景色而没有边框的情况下，这个效果可能不明显 */  
+  
+    /* （可选）添加阴影效果 */  
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */  
+  
+    /* 其他你想要的样式... */  
+}  
+  
+/* 如果你想要为特定的 <hr> 元素应用不同的样式，可以使用类选择器 */  
+.special-hr {  
+    height: 4px;  
+    background-color: blue; /* 蓝色 */  
+    margin: 30px 0;  
+    /* ... 其他样式 */  
+}
+  
+/* 其他可能的样式... */
+ol, ul {  
+    list-style-type: none; /* 移除默认的列表样式 */  
+    padding: 0; /* 移除默认的内边距 */  
+}  
+  
+ol li {  
+    margin-bottom: 10px; /* 列表项之间的间距 */  
+    position: relative; /* 设置相对定位，以便子列表可以正确对齐 */  
+    padding-left: 20px; /* 左侧内边距，用于放置可能的自定义列表标记 */  
+}  
+  
+ol li::before {  
+    content: "●"; /* 使用自定义的列表标记 */  
+    position: absolute;  
+    left: 0;  
+}  
+  
+ol li ol {  
+    padding-left: 20px; /* 子列表的内边距 */  
+}  
+  
+a {  
+    color: #007bff; /* 链接颜色 */  
+    text-decoration: none; /* 移除下划线 */  
+}  
+  
+a:hover {  
+    text-decoration: underline; /* 鼠标悬停时添加下划线 */  
+}
+
+/* 媒体查询，针对屏幕宽度小于或等于768px的设备 */  
+@media (max-width: 768px) {  
+    .container {  
+        width: 90%; /* 在小屏幕上使用更宽的容器 */  
+    }  
+  
+    header h1 {  
+        font-size: 2em; /* 减小标题字体大小 */  
+    }  
+  
+    nav ul li {  
+        margin: 0 10px; /* 减小导航链接之间的间距 */  
+        display: block; /* 将导航链接堆叠而不是并排显示 */  
+        text-align: center; /* 居中导航链接 */  
+    }  
+  
+    nav ul li a {  
+        font-size: 1em; /* 减小导航链接字体大小 */  
+    }  
+  
+    .content-section h2 {  
+        font-size: 1.5em; /* 减小内容区标题字体大小 */  
+    }  
+  
+    .content-section p, #special-format {  
+        font-size: 1em; /* 减小内容区文字字体大小 */  
+    }  
+  
+    blockquote {  
+        font-size: 1em; /* 减小引用文本字体大小 */  
+    }  
+  
+    footer p {  
+        font-size: 0.9em; /* 减小页脚文字字体大小 */  
+    }  
+}
+
+/* 包裹内容和页脚 */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 页脚样式，固定在底部 */
+footer {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* 搜索按钮的样式增强 */
+#search-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-section button:hover {
+    background-color: #0056b3;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333333;
+        --text-color: #ffffff;
+        --hr-color:#ffffff;
+        --header-background-color: #333333;
+        --footer-background-color: #333333;
+        --search-background-color: #3c3c3c;
+        --button-background-color: #007bff;
+        --button-hover-background-color: #0056b3;
+    }
+}
