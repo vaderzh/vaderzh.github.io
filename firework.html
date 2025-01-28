@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>星辰烟火 - Stellar Fireworks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
+        
+        :root {
+            --primary-color: rgba(255, 215, 0, 0.9);
+            --secondary-color: rgba(255, 105, 180, 0.9);
+            --bg-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            animation: textReveal 2s 1s forwards cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .title {
+            font-size: 5vmax;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.2em;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5vmax;
+            color: rgba(255,255,255,0.8);
+            opacity: 0;
+            animation: subtitleFade 2s 2.5s forwards;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        @keyframes textReveal {
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+                letter-spacing: 1em;
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                letter-spacing: 0.2em;
+            }
+        }
+
+        @keyframes subtitleFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 0.8;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-text">
+        <h1 class="title">新年快乐！！！</h1>
+        <p class="subtitle">Click or Touch to Create Magic • Press [Space] for Auto Mode</p>
+    </div>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        class ParticleSystem {
+            constructor() {
+                this.canvas = document.getElementById('canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.autoMode = false;
+                this.init();
+            }
+
+            init() {
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+                document.addEventListener('click', (e) => this.createFirework(e.clientX, e.clientY));
+                document.addEventListener('keydown', (e) => {
+                    if (e.code === 'Space') this.autoMode = !this.autoMode;
+                });
+                
+                this.animate();
+                setInterval(() => {
+                    if (this.autoMode) {
+                        this.createFirework(
+                            Math.random() * this.canvas.width,
+                            this.canvas.height
+                        );
+                    }
+                }, 300);
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            createFirework(x, y) {
+                // 发射轨迹粒子
+                const launchParticles = 15;
+                for (let i = 0; i < launchParticles; i++) {
+                    this.particles.push(new LaunchParticle(x, this.canvas.height, y));
+                }
+
+                // 爆炸效果
+                setTimeout(() => {
+                    const explosionParticles = 150;
+                    for (let i = 0; i < explosionParticles; i++) {
+                        this.particles.push(new ExplosionParticle(x, y));
+                    }
+                }, 800);
+            }
+
+            animate() {
+                this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                this.particles.forEach((particle, index) => {
+                    particle.update();
+                    particle.draw(this.ctx);
+                    if (particle.alpha <= 0) {
+                        this.particles.splice(index, 1);
+                    }
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        class LaunchParticle {
+            constructor(startX, startY, targetY) {
+                this.x = startX;
+                this.y = startY;
+                this.targetY = targetY;
+                this.alpha = 1;
+                this.size = Math.random() * 2 + 1;
+                this.color = `hsla(${Math.random() * 60 + 200}, 70%, 50%, ${this.alpha})`;
+                this.velocity = {
+                    x: (Math.random() - 0.5) * 2,
+                    y: -Math.random() * 8 - 4
+                };
+            }
+
+            update() {
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                this.alpha -= 0.01;
+            }
+
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        class ExplosionParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.alpha = 1;
+                this.size = Math.random() * 3 + 1;
+                this.color = `hsla(${Math.random() * 360}, 100%, 50%, ${this.alpha})`;
+                this.velocity = {
+                    x: (Math.random() - 0.5) * 10,
+                    y: (Math.random() - 0.5) * 10
+                };
+                this.gravity = 0.1;
+                this.decay = Math.random() * 0.02 + 0.01;
+            }
+
+            update() {
+                this.velocity.y += this.gravity;
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                this.alpha -= this.decay;
+                this.size *= 0.98;
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color.replace(/[\d\.]+\)$/, this.alpha + ')');
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // 启动系统
+        new ParticleSystem();
+    </script>
+</body>
+</html>
