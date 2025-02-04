@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page of Vader.Thomas</title>
+  <link rel="icon" type="image/jpg" href="websiteimage.jpg">
+  <style>
+    /* 全局样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: '宋体', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* 导航栏 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #2c3e50;
+      padding: 15px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    .navbar li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #3498db;
+    }
+
+    /* 主体内容 */
+    .container {
+      margin: 80px auto;
+      padding: 0 15px;
+      max-width: 1200px;
+    }
+
+    /* 轮播图 */
+    .carousel {
+      position: relative;
+      margin-bottom: 40px;
+      padding: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.1);
+    }
+
+    .carousel-text {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      color: white;
+    }
+
+    .carousel-text h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .carousel-text p {
+      font-size: 18px;
+    }
+
+    /* 特色功能 */
+    .features {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* 案例展示 */
+    .case-studies {
+      margin-bottom: 60px;
+    }
+
+    .case-item {
+      background: white;
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 联系表单 */
+    .contact-form {
+      margin-bottom: 60px;
+      padding: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #2980b9;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: #2c3e50;
+      padding: 40px 0;
+      text-align: center;
+      color: #ecf0f1;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .carousel img {
+        height: 300px;
+      }
+
+      .navbar li {
+        margin: 0 10px;
+      }
+    }
+    /* 侧边栏 */
+    .sidebar {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 作者信息 */
+        .author-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 1rem;
+        }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <div class="navbar">
+    <ul>
+      <li><a href="#home">首页</a></li>
+      <li><a href="#features">文以载道</a></li>
+      <li><a href="#casestudies">词句选摘</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="container">
+    <!-- 轮播图 -->
+    <div id="home" class="carousel">
+      <img src="e:\头像or壁纸\头图.jpeg" alt="轮播图">
+      <div class="carousel-text">
+        <h2>欢迎来到我的个人网页</h2>
+        <p>寄蜉蝣于天地，渺沧海之一粟。</p>
+      </div>
+    </div>
+
+    <!-- 文以载道 -->
+    <div id="features" class="features">
+      <h2>文以载道</h2>
+      <div class="feature-items">
+        <div class="feature-card">
+          <h3>一木先生的读书日记</h3>
+          <p>一木，也是Vader.Thomas。一木先生喜欢看书，但看完书总不能找到志同道合者聊聊，于是一木先生喜欢把想法写下来，于是“一木先生的读书日记”就应运而生了……<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkzOTg2NzE4MA==&action=getalbum&album_id=3801103303774240775#wechat_redirect" target="_blank" style="color: blue;text-decoration: none;">链接</a></p>
+          
+        </div>
+        <div class="feature-card">
+          <h3>非专业版辩论通论</h3>
+          <p>Vader.Thomas是一个业余辩手，总自以为对辩论有一些独到见解……<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkzOTg2NzE4MA==&action=getalbum&album_id=3774995866914848770#wechat_redirect" target="_blank" style="color: blue;text-decoration: none;">链接</a></p>
+        </div>
+        <div class="feature-card">
+          <h3>Vader_ZH一路楼</h3>
+          <p>Vader_ZH是Vader.Thomas在浙江大学内网论坛上的ID，你可以在这个<a href="https://www.cc98.org/topic/5872145/9999" target="_blank" style="color: blue;text-decoration: none;">一路楼</a>里跟他聊天~这里也有一些Vader的碎碎念……</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 词句选摘 -->
+    <div id="casestudies" class="case-studies">
+      <h2>词句选摘</h2>
+      <div class="case-item">
+        <h3 style="font-family: 华文楷体; font-size: 20px;">《赤壁赋》苏轼</h3>
+        <p style="font-family: 华文行楷; font-size: 18px;">客曰：“‘月明星稀，乌鹊南飞’，此非曹孟德之诗乎？西望夏口，东望武昌，山川相缪，郁乎苍苍，此非孟德之困于周郎者乎？方其破荆州，下江陵，顺流而东也，舳舻千里，旌旗蔽空，酾酒临江，横槊赋诗，固一世之雄也，而今安在哉？况吾与子渔樵于江渚之上，侣鱼虾而友麋鹿，驾一叶之扁舟，举匏樽以相属。寄蜉蝣于天地，渺沧海之一粟。哀吾生之须臾，羡长江之无穷。挟飞仙以遨游，抱明月而长终。知不可乎骤得，托遗响于悲风。”</p>
+        <br>
+        <p style="font-family: 华文行楷; font-size: 18px;">苏子曰：“客亦知夫水与月乎？逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也。盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也，而又何羡乎！且夫天地之间，物各有主，苟非吾之所有，虽一毫而莫取。惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭。是造物者之无尽藏也，而吾与子之所共适。”</p>
+      </div>
+      <div class="case-item">
+        <h3 style="font-family: 华文楷体; font-size: 20px;">《贺新郎》辛弃疾</h3>
+        <p style="font-family: 华文楷体; font-size: 18px;">邑中园亭，仆皆为赋此词。一日，独坐停云，水声山色，竞来相娱。意溪山欲援例者，遂作数语，庶几仿佛渊明思亲友之意云。</p>
+        <br>
+        <P style="font-family: 华文行楷; font-size: 18px;">甚矣吾衰矣。怅平生、交游零落，只今余几！白发空垂三千丈，一笑人间万事。问何物、能令公喜？我见青山多妩媚，料青山见我应如是。情与貌，略相似。</P>
+        <br>
+        <p style="font-family: 华文行楷; font-size: 18px;">一尊搔首东窗里。想渊明、《停云》诗就，此时风味。江左沉酣求名者，岂识浊醪妙理。回首叫、云飞风起。不恨古人吾不见，恨古人不见吾狂耳。知我者，二三子。</p>
+      </div>
+      <div class="case-item">
+        <h3 style="font-family: 华文楷体; font-size: 20px;">《定风波·莫听穿林打叶声》苏轼</h3>
+        <p style="font-family: 华文楷体; font-size: 18px;">三月七日，沙湖道中遇雨，雨具先去，同行皆狼狈，余独不觉。已而遂晴，故作此(词)。</p><br>
+        <p style="font-family: 华文行楷; font-size: 18px;">莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。</p><br><P style="font-family: 华文行楷; font-size: 18px;">料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。</p>
+      </div>
+    </div>
+
+    <!-- 联系表单 -->
+    <div id="contact" class="contact-form">
+      <h2>联系我们</h2>
+      <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="姓名" required>
+        <input type="email" id="email" placeholder="邮箱" required>
+        <textarea id="message" placeholder="留言" required></textarea>
+        <button type="submit">提交</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <p style="color: white;">© 2025 <a href="https://www.cc98.org/user/id/732510" style="color: white; text-decoration: none;">@Vader_ZH</a> 版权所有.</p>
+  </div>
+
+  <script>
+    // 表单验证
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('请填写所有必填项！');
+        return false;
+      }
+      alert('提交成功，我们会尽快与您联系！');
+      return true;
+    }
+  </script>
+  <div class="sidebar">
+    <div class="author-card">
+        <a href="https://www.cc98.org/user/id/732510" target="_blank" title="CC98账号"><img src="avater.jpg" alt="作者头像" class="author-avatar"></a>
+        <h3>Vader.Thomas</h3>
+        <p>一个碎碎念爱好者</p>
+    </div>
+  </div>
+</body>
+</html>
